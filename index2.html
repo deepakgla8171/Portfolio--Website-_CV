@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+</head>
+
+<body>
+
+    <form action="">
+
+        <!-- Personal Information -->
+        <fieldset>
+            <legend>Event Registration Form</legend>
+
+            <fieldset>
+                <legend>Personal Info</legend>
+
+                <label for="fullname">FullName:</label>
+                <input type="text" id="fullname" placeholder="enter your fullname">
+                <br><br>
+
+                <label for="parent">Parent Name:</label>
+                <input type="text" id="parent" placeholder="enter your parent name">
+                <br><br>
+
+                <label for="contact">Contact Information</label>
+                <br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="dk@gmail.com">
+                <br><br>
+
+                <label for="mobile">Mobile-No:</label>
+                <input type="tel" id="mobile" placeholder="enter your 10 digit mobile no">
+                <br><br>
+
+                <label for="meal">Preference</label>
+                <br> Meal:
+                <select id="meal">
+                    <option selected disabled>select a meal type</option>
+                    <option>Veg</option>
+                    <option>Non-Veg</option>
+                </select>
+                <br><br> Resident Area:
+                <select id="resident">
+                    <option selected disabled>select a resident type</option>
+                    <option>Hosteller</option>
+                    <option>Day Scholar</option>
+                </select>
+
+            </fieldset>
+
+            <!-- Other Information -->
+            <fieldset>
+                <legend>Other Information</legend>
+
+                <label for="info">Other Info:</label>
+
+                <textarea id="info" name="info" cols="35" rows="5">
+                </textarea>
+
+            </fieldset>
+
+            <br>
+
+            <input type="submit" value="Submit Form">
+
+        </fieldset>
+
+    </form>
+
+</body>
+
+</html>
