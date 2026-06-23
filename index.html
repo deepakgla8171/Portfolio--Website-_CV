@@ -807,7 +807,12 @@
         });
 
         // Back to top
-
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
 
         // Counter Animation
         const counters = document.querySelectorAll('.counter');
