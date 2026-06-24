@@ -786,106 +786,100 @@
 
         // Scroll Progress
         window.addEventListener('scroll', () => {
-            const winScroll = document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progress-bar').style.width = scrolled + '%';
+                    const winScroll = document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (winScroll / height) * 100;
+                    document.getElementById('progress-bar').style.width = scrolled + '%';
 
-            const navbar = document.getElementById('navbar');
-            if (winScroll > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+                    const navbar = document.getElementById('navbar');
+                    if (winScroll > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
 
-            const backBtn = document.getElementById('back-to-top');
-            if (winScroll > 500) {
-                backBtn.style.opacity = '1';
-            } else {
-                backBtn.style.opacity = '0';
-            }
-        });
 
-        // Back to top
-        document.getElementById('back-to-top').addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
 
-        // Counter Animation
-        const counters = document.querySelectorAll('.counter');
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px'
-        };
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    const target = parseInt(counter.getAttribute('data-count'));
-                    let current = 0;
-                    const increment = target / 50;
-                    const updateCounter = () => {
-                        current += increment;
-                        if (current < target) {
-                            counter.textContent = Math.floor(current);
-                            requestAnimationFrame(updateCounter);
-                        } else {
-                            counter.textContent = target;
-                        }
+                    // Back to top
+                    document.getElementById('back-to-top').addEventListener('click', () => {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+
+                    // Counter Animation
+                    const counters = document.querySelectorAll('.counter');
+                    const observerOptions = {
+                        threshold: 0.5,
+                        rootMargin: '0px'
                     };
-                    updateCounter();
-                    counterObserver.unobserve(counter);
-                }
-            });
-        }, observerOptions);
-        counters.forEach(counter => counterObserver.observe(counter));
+                    const counterObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const counter = entry.target;
+                                const target = parseInt(counter.getAttribute('data-count'));
+                                let current = 0;
+                                const increment = target / 50;
+                                const updateCounter = () => {
+                                    current += increment;
+                                    if (current < target) {
+                                        counter.textContent = Math.floor(current);
+                                        requestAnimationFrame(updateCounter);
+                                    } else {
+                                        counter.textContent = target;
+                                    }
+                                };
+                                updateCounter();
+                                counterObserver.unobserve(counter);
+                            }
+                        });
+                    }, observerOptions);
+                    counters.forEach(counter => counterObserver.observe(counter));
 
-        // Projects Data
-        const projects = [{
-            id: 1,
-            title: 'E-Commerce Platform',
-            description: 'Full-stack e-commerce solution with Spring Boot and React',
-            tech: ['Java', 'Spring Boot', 'React', 'MySQL'],
-            image: 'https://placehold.co/400x250/1f1f2f/6366f1?text=E-Commerce',
-            github: 'https://github.com/',
-            demo: '#',
-            category: 'fullstack'
-        }, {
-            id: 2,
-            title: 'Task Management System',
-            description: 'Project management tool with real-time updates',
-            tech: ['Spring Boot', 'React', 'MongoDB'],
-            image: 'https://placehold.co/400x250/1f1f2f/8b5cf6?text=Task+Manager',
-            github: 'https://github.com/',
-            demo: '#',
-            category: 'fullstack'
-        }, {
-            id: 3,
-            title: 'Weather App',
-            description: 'Weather forecasting application',
-            tech: ['React', 'CSS', 'REST API'],
-            image: 'https://placehold.co/400x250/1f1f2f/00f3ff?text=Weather+App',
-            github: 'https://github.com/',
-            demo: '#',
-            category: 'frontend'
-        }, {
-            id: 4,
-            title: 'Cloud File Storage',
-            description: 'AWS-based file storage platform',
-            tech: ['AWS S3', 'Lambda', 'React'],
-            image: 'https://placehold.co/400x250/1f1f2f/ff9900?text=Cloud+Storage',
-            github: 'https://github.com/',
-            demo: '#',
-            category: 'cloud'
-        }];
+                    // Projects Data
+                    const projects = [{
+                        id: 1,
+                        title: 'E-Commerce Platform',
+                        description: 'Full-stack e-commerce solution with Spring Boot and React',
+                        tech: ['Java', 'Spring Boot', 'React', 'MySQL'],
+                        image: 'https://placehold.co/400x250/1f1f2f/6366f1?text=E-Commerce',
+                        github: 'https://github.com/',
+                        demo: '#',
+                        category: 'fullstack'
+                    }, {
+                        id: 2,
+                        title: 'Task Management System',
+                        description: 'Project management tool with real-time updates',
+                        tech: ['Spring Boot', 'React', 'MongoDB'],
+                        image: 'https://placehold.co/400x250/1f1f2f/8b5cf6?text=Task+Manager',
+                        github: 'https://github.com/',
+                        demo: '#',
+                        category: 'fullstack'
+                    }, {
+                        id: 3,
+                        title: 'Weather App',
+                        description: 'Weather forecasting application',
+                        tech: ['React', 'CSS', 'REST API'],
+                        image: 'https://placehold.co/400x250/1f1f2f/00f3ff?text=Weather+App',
+                        github: 'https://github.com/',
+                        demo: '#',
+                        category: 'frontend'
+                    }, {
+                        id: 4,
+                        title: 'Cloud File Storage',
+                        description: 'AWS-based file storage platform',
+                        tech: ['AWS S3', 'Lambda', 'React'],
+                        image: 'https://placehold.co/400x250/1f1f2f/ff9900?text=Cloud+Storage',
+                        github: 'https://github.com/',
+                        demo: '#',
+                        category: 'cloud'
+                    }];
 
-        function renderProjects(filter = 'all') {
-            const container = document.getElementById('projects-container');
-            const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
-            container.innerHTML = filtered.map(project => `
+                    function renderProjects(filter = 'all') {
+                        const container = document.getElementById('projects-container');
+                        const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+                        container.innerHTML = filtered.map(project => `
             <div class="glass-card project-card" style="overflow: hidden;">
                 <img src="${project.image}" alt="${project.title}" style="width: 100%; height: 200px; object-fit: cover;">
                 <div style="padding: 25px;">
